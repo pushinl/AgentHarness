@@ -7,6 +7,9 @@
     The Universal Harness Engine for Agentic RL — bridging the gap between environments, rewards, and training frameworks.
   </p>
   <p align="center">
+    English | <a href="./README_CN.md">中文</a>
+  </p>
+  <p align="center">
     <a href="#quick-start">Quick Start</a> &bull;
     <a href="#architecture">Architecture</a> &bull;
     <a href="#examples">Examples</a> &bull;
