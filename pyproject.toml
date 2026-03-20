@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-harness"
+version = "0.1.0"
+description = "The Universal Harness Engine for Agentic RL — Harness any task. Compose any reward. Train any agent."
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "pushinl", email = "pushinliu@gmail.com"},
+]
+keywords = ["reinforcement-learning", "agent", "reward-engineering", "llm", "harness"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "pydantic>=2.0",
+    "rich>=13.0",
+    "pyarrow>=14.0",
+    "click>=8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "hypothesis>=6.0",
+    "ruff>=0.3.0",
+]
+backends = [
+    "ray>=2.9",
+]
+viz = [
+    "gradio>=4.0",
+    "plotly>=5.0",
+]
+all = ["agent-harness[dev,backends,viz]"]
+
+[project.scripts]
+agent-harness = "agent_harness.cli.main:cli"
+
+[project.urls]
+Homepage = "https://github.com/pushinl/AgentHarness"
+Repository = "https://github.com/pushinl/AgentHarness"
+Issues = "https://github.com/pushinl/AgentHarness/issues"
+
+[tool.setuptools.packages.find]
+include = ["agent_harness*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
